@@ -4,10 +4,16 @@
 	<meta charset="utf-8">
 	<title>check who use embed</title>
 	<script type="text/javascript">
+		if(window.location.ancestorOrigins){
 		document.write("ancestorOrigins count : "+window.location.ancestorOrigins.length+"<br>");
 		document.write("ancestorOrigins : "+window.location.ancestorOrigins[0]+"<br>");
+		}
+		if(window.location.origin){
 		document.write("Origins : "+window.location.origin+"<br>");
+		}
+		if(window.location.hostname){
 		document.write("hostname : "+window.location.hostname+"<br>");
+		}
 	</script>
 </head>
 <body>
