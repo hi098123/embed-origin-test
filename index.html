@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>check who use embed</title>
+	<script type="text/javascript">
+		document.write("count : "+window.location.ancestorOrigins.length+"\n");
+		document.write(window.location.ancestorOrigins[0]);
+	</script>
+</head>
+<body>
+	<button onclick="console.log(window);">console get window</button>
+</body>
+</html>
