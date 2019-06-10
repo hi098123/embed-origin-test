@@ -17,7 +17,28 @@
 		if(document.referrer){
 		document.write("document.referrer : "+document.referrer+"<br>");
 		}
-		window.parent.postMessage("hello","*");
+		//window.parent.postMessage("hello","*"); 메시지 전송가능
+		(function() {
+		    var throttle = function(type, name, obj) {
+		        obj = obj || window;
+		        var running = false;
+		        var func = function() {
+		            if (running) { return; }
+		            running = true;
+		            requestAnimationFrame(function() {
+		                obj.dispatchEvent(new CustomEvent(name));
+		                running = false;
+		            });
+		        };
+		        obj.addEventListener(type, func);
+		    };
+
+		    /* init - you can init any event */
+		    throttle("resize", "optimizedResize");
+		})();
+		window.addEventListener('resize',function(e){
+			window.parent.postMessage(window.innerHeight,"*");
+		})
 	</script>
 </head>
 <body>
