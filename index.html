@@ -17,6 +17,7 @@
 		if(document.referrer){
 		document.write("document.referrer : "+document.referrer+"<br>");
 		}
+		window.parent.postMessage("hello",null);
 	</script>
 </head>
 <body>
